@@ -4,3 +4,7 @@ Tools/Library/
 *.log
 
 Tools/Temp/
+
+*.csproj
+
+Tools/.vs/
