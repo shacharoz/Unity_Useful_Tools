@@ -8,3 +8,4 @@ Tools/Temp/
 *.csproj
 
 Tools/.vs/
+*.sln
