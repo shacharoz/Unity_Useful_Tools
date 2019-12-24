@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerWhenTimeEnds : MonoBehaviour {
+public class TriggerWhenTimeEnds : MonoBehaviour
+{
 
     public int TimeInSeconds = 60;
 
@@ -13,8 +14,9 @@ public class TriggerWhenTimeEnds : MonoBehaviour {
 
     public bool StartImmediately = false;
 
-	// Use this for initialization
-	void Start () {
+
+    private void OnEnable()
+    {
         _isCountStarted = false;
 
         if (StartImmediately == true)
@@ -22,10 +24,10 @@ public class TriggerWhenTimeEnds : MonoBehaviour {
             StartCountdown();
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
 
+    // Update is called once per frame
+    void Update()
+    {
         if (_isCountStarted == true)
         {
             if (Time.time - _startTime > TimeInSeconds)
@@ -34,7 +36,7 @@ public class TriggerWhenTimeEnds : MonoBehaviour {
                 OnTimeRunOut.Invoke();
             }
         }
-	}
+    }
 
     public void StartCountdown()
     {

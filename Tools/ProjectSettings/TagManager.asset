@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - button1
+  - TeleportEnter
+  - TeleportExit
+  - bullet
+  - mine
+  - It appared
+  - negro
   layers:
   - Default
   - TransparentFX
@@ -13,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 
