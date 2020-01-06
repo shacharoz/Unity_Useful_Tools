@@ -1,19 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TriggerWhenTimeEnds : MonoBehaviour
 {
-
     public int TimeInSeconds = 60;
-
     public UnityEngine.Events.UnityEvent OnTimeRunOut;
+    public bool StartImmediately = false;
 
     private bool _isCountStarted;
     private float _startTime;
-
-    public bool StartImmediately = false;
-
 
     private void OnEnable()
     {

@@ -13,8 +13,6 @@ public class Timer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
         timerTextField.text = Time.time.ToString("00:00");
-        //string.Format("{0:0.##}", 256.0);
     }
 }

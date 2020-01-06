@@ -5,6 +5,7 @@ using UnityEngine;
 public class AutomaticMovement : MonoBehaviour
 {
     public float Speed = 1;
+    public Vector3 Direction;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,6 @@ public class AutomaticMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * Speed);
+        transform.Translate(Direction * Time.deltaTime * Speed);
     }
 }
