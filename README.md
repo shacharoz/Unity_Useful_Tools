@@ -6,3 +6,12 @@ enjoy.
 
 
 also added Learning Materials which has bunch of pdf presentations on specific subjects.
+
+
+![alt text](https://raw.githubusercontent.com/shacharoz/Unity_Useful_Tools/master/Tools/Design/EventTriggering.png)
+
+
+![alt text](https://raw.githubusercontent.com/shacharoz/Unity_Useful_Tools/master/Tools/Design/escape room riddles.png)
+
+
+![alt text](https://raw.githubusercontent.com/shacharoz/Unity_Useful_Tools/master/Tools/Design/advanced level design mechanism.png)
