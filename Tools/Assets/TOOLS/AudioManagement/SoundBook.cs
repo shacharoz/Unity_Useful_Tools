@@ -14,14 +14,14 @@ public class SoundBook : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if (bgMusicPlayer == null)
+        if (bgMusicPlayer == null && bgMusics.Count>0)
         {
             bgMusicPlayer = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
             bgMusicPlayer.playOnAwake = false;
             bgMusicPlayer.loop = true;
         }
 
-        if (audioPlayer == null)
+        if (audioPlayer == null && fxFiles.Count>0)
         {
             audioPlayer = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
             audioPlayer.playOnAwake = false;

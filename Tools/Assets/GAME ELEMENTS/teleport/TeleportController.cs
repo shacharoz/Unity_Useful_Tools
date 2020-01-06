@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class TeleportController : MonoBehaviour
 {
+    public UnityEngine.Events.UnityEvent OnTeleportActivated;
+
     public Transform Enter;
     public Transform Exit;
 
-    public UnityEngine.Events.UnityEvent OnTeleportActivated;
 
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void OnPlayerEnter()
     {
         Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;

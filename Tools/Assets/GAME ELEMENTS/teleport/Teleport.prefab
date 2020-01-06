@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6662084400369080594}
   - component: {fileID: 6662084400369080593}
   - component: {fileID: 6662084400369080592}
+  - component: {fileID: 5283577414251826409}
   m_Layer: 0
   m_Name: Enter
   m_TagString: TeleportEnter
@@ -66,7 +67,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -92,6 +92,36 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5283577414251826409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6662084400369080591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7abe987b4c71846bb0164ba7b3a121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsTrigger: 1
+  TargetObjectTagName: Player
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6662084401833927922}
+        m_MethodName: OnPlayerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &6662084401140002669
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +188,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -194,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6662084401833927923}
   - component: {fileID: 6662084401833927922}
-  - component: {fileID: 4784775069127006112}
+  - component: {fileID: 8701945593673572777}
   m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
@@ -230,12 +259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78884cd21c0731c42a1f1ad5e4eff0e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enter: {fileID: 6662084400369080595}
-  Exit: {fileID: 6662084401140002670}
   OnTeleportActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4784775069127006112}
+      - m_Target: {fileID: 8701945593673572777}
         m_MethodName: PlayFxNow
         m_Mode: 5
         m_Arguments:
@@ -243,12 +270,14 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: activated
+          m_StringArgument: teleport_activated
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4784775069127006112
+  Enter: {fileID: 6662084400369080595}
+  Exit: {fileID: 6662084401140002670}
+--- !u!114 &8701945593673572777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,11 +286,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6662084401833927921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab6d47c4c1f12734f8e442c378f3ef66, type: 3}
+  m_Script: {fileID: 11500000, guid: ae22eb502489a324baa6f47dfc82e929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fxFiles:
-  - purpose: activated
+  - purpose: teleport_activated
     clip: {fileID: 8300000, guid: 4b8171f1bc4fbc2478bdabfb3a1b671e, type: 3}
   audioPlayer: {fileID: 0}
   bgMusics: []

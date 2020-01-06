@@ -9,3 +9,4 @@ Tools/Temp/
 
 Tools/.vs/
 *.sln
+*.cache
