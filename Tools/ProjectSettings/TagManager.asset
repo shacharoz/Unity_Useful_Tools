@@ -10,7 +10,10 @@ TagManager:
   - bullet
   - mine
   - It appared
-  - negro
+  - LOAD_NEW_LEVEL
+  - PICKUP
+  - OBSTACLE
+  - Floor
   layers:
   - Default
   - TransparentFX
