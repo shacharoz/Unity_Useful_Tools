@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //for email with smtp
 using System.Net.Mail;
@@ -41,7 +39,7 @@ public class EmailSender : MonoBehaviour
         // you can use others too.
         SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
         smtpServer.Port = 587;
-        smtpServer.Credentials = new NetworkCredential("shachar.oz@gmail.com", "theworldatyourfeet1") as ICredentialsByHost;
+        smtpServer.Credentials = new NetworkCredential("shachar.oz@gmail.com", "yourpass") as ICredentialsByHost;
         smtpServer.EnableSsl = true;
         ServicePointManager.ServerCertificateValidationCallback =
         delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
