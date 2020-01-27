@@ -4,9 +4,9 @@ if you would like to teach with these materials, please contact em and i will tr
 
 
 # Lesson 1: Understanding 3D and the Unity user interface
-# target audience: 
+## target audience: 
 beginners with Unity interface. relevant for 10 - 50 years old.
-# instructions: 
+## instructions: 
 1. open the Intro_3D_Mincraft_DesignYourWorldFromCubes_starterKit package into an empty project.
 2. show how to play/ pause/ stop the game.
 3. show how to move around in the Scene window.
