@@ -8,7 +8,12 @@ Tools/Temp/
 *.csproj
 
 Tools/.vs/
+
 *.sln
+
 *.cache
-*.cache
-*.cache
+
+Learning Materials/Lessons/Intro_3D_Mincraft_DesignYourWorldFromCubes/Library/
+Learning Materials/Lessons/Intro_3D_Mincraft_DesignYourWorldFromCubes/Temp/
+Learning Materials/Lessons/Intro_3D_Mincraft_DesignYourWorldFromCubes/Logs/
+Learning Materials/Lessons/Intro_3D_Mincraft_DesignYourWorldFromCubes/Packages/
