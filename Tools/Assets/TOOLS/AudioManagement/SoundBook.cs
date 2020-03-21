@@ -1,81 +1,83 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundBook : MonoBehaviour
+namespace WizardOzTools
 {
-    public List<AudioFile> fxFiles;
-    public AudioSource audioPlayer;
-
-    public List<AudioFile> bgMusics;
-    public AudioSource bgMusicPlayer;
-
-
-    // Start is called before the first frame update
-    void Awake()
+    public class SoundBook : MonoBehaviour
     {
-        if (bgMusicPlayer == null && bgMusics.Count>0)
-        {
-            bgMusicPlayer = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
-            bgMusicPlayer.playOnAwake = false;
-            bgMusicPlayer.loop = true;
-        }
+        public List<AudioFile> fxFiles;
+        public AudioSource audioPlayer;
 
-        if (audioPlayer == null && fxFiles.Count>0)
-        {
-            audioPlayer = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
-            audioPlayer.playOnAwake = false;
-            audioPlayer.loop = false;
-        }
-    }
+        public List<AudioFile> bgMusics;
+        public AudioSource bgMusicPlayer;
 
-    public AudioClip GetClipByPurpose(string filename)
-    {
-        foreach (AudioFile audio in fxFiles)
+
+        // Start is called before the first frame update
+        void Awake()
         {
-            if (audio.purpose == filename)
+            if (bgMusicPlayer == null && bgMusics.Count > 0)
             {
-                return audio.clip;
+                bgMusicPlayer = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+                bgMusicPlayer.playOnAwake = false;
+                bgMusicPlayer.loop = true;
+            }
+
+            if (audioPlayer == null && fxFiles.Count > 0)
+            {
+                audioPlayer = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+                audioPlayer.playOnAwake = false;
+                audioPlayer.loop = false;
             }
         }
 
-        Debug.LogError("no clip found in sound book with that name: " + filename);
-        return null;
-    }
-
-    public void PlayFxNow(string filename)
-    {
-        AudioClip clip = GetClipByPurpose(filename);
-        if (clip != null)
+        public AudioClip GetClipByPurpose(string filename)
         {
-            audioPlayer.clip = clip;
-            audioPlayer.Play();
-        }
-    }
-
-    public void PlayMusicNow(string filename)
-    {
-        foreach (AudioFile music in bgMusics)
-        {
-            if (music.purpose == filename)
+            foreach (AudioFile audio in fxFiles)
             {
-                bgMusicPlayer.clip = music.clip;
-                bgMusicPlayer.Play();
+                if (audio.purpose == filename)
+                {
+                    return audio.clip;
+                }
+            }
 
-                break;
+            Debug.LogError("no clip found in sound book with that name: " + filename);
+            return null;
+        }
+
+        public void PlayFxNow(string filename)
+        {
+            AudioClip clip = GetClipByPurpose(filename);
+            if (clip != null)
+            {
+                audioPlayer.clip = clip;
+                audioPlayer.Play();
             }
         }
+
+        public void PlayMusicNow(string filename)
+        {
+            foreach (AudioFile music in bgMusics)
+            {
+                if (music.purpose == filename)
+                {
+                    bgMusicPlayer.clip = music.clip;
+                    bgMusicPlayer.Play();
+
+                    break;
+                }
+            }
+        }
+
+        public void StopMusicNow()
+        {
+            bgMusicPlayer.Stop();
+        }
     }
 
-    public void StopMusicNow()
+    [System.Serializable]
+    public class AudioFile
     {
-        bgMusicPlayer.Stop();
+        public string purpose;
+        public AudioClip clip;
     }
-}
-
-[System.Serializable]
-public class AudioFile
-{
-    public string purpose;
-    public AudioClip clip;
 }

@@ -9,8 +9,7 @@ public class MusicPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SoundBook book = FindObjectOfType<SoundBook>();
+        WizardOzTools.SoundBook book = FindObjectOfType<WizardOzTools.SoundBook>();
         book.PlayMusicNow(bgMusicName);
     }
-    
 }
