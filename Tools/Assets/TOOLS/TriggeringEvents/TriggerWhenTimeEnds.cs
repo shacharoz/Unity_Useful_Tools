@@ -1,45 +1,60 @@
 ﻿using UnityEngine;
 
-public class TriggerWhenTimeEnds : MonoBehaviour
+namespace WizardOzTools
 {
-    public int TimeInSeconds = 60;
-    public UnityEngine.Events.UnityEvent OnTimeRunOut;
-    public bool StartImmediately = false;
-
-    private bool _isCountStarted;
-    private float _startTime;
-
-    private void OnEnable()
+    public class TriggerWhenTimeEnds : MonoBehaviour
     {
-        _isCountStarted = false;
+        public string description = "use this field to describe the trigger action";
 
-        if (StartImmediately == true)
-        {
-            StartCountdown();
-        }
-    }
+        /// <summary>
+        /// time to wait
+        /// </summary>
+        public int TimeInSeconds = 60;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (_isCountStarted == true)
+        /// <summary>
+        /// start the counter automatically or wait for an external function call
+        /// </summary>
+        public bool StartImmediately = false;
+
+        /// <summary>
+        /// event to call in the end of the count
+        /// </summary>
+        public UnityEngine.Events.UnityEvent OnTimeRunOut;
+
+        private bool _isCountStarted;
+        private float _startTime;
+
+        private void OnEnable()
         {
-            if (Time.time - _startTime > TimeInSeconds)
+            _isCountStarted = false;
+
+            if (StartImmediately == true)
             {
-                _isCountStarted = false;
-                OnTimeRunOut.Invoke();
+                StartCountdown();
             }
         }
-    }
 
-    public void StartCountdown()
-    {
-        _isCountStarted = true;
-        _startTime = Time.time;
-    }
+        void Update()
+        {
+            if (_isCountStarted == true)
+            {
+                if (Time.time - _startTime > TimeInSeconds)
+                {
+                    _isCountStarted = false;
+                    OnTimeRunOut.Invoke();
+                }
+            }
+        }
 
-    public void StopCountdown()
-    {
-        _isCountStarted = false;
+        public void StartCountdown()
+        {
+            _isCountStarted = true;
+            _startTime = Time.time;
+        }
+
+        public void StopCountdown()
+        {
+            _isCountStarted = false;
+        }
     }
 }

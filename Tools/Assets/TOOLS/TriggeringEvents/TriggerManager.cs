@@ -1,25 +1,56 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace WizardOzTools
 {
     public class TriggerManager : MonoBehaviour
     {
-        public string description = "use this field to describe the trigger action";
-        public ColliderType TriggerType;
-        public string TargetObjectTagName = "Add Target Tag Here";
-        public UnityEngine.Events.UnityEvent OnHit;
+        public List<TriggerEventItem> events;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (TriggerType == ColliderType.Trigger_PassThrough && other.CompareTag(TargetObjectTagName))
-                OnHit.Invoke();
+            foreach (TriggerEventItem te in events)
+            {
+                if (te.TriggerType == TriggerEventItem.ColliderType.Trigger_PassThrough 
+                    && other.CompareTag(te.TargetObjectTagName))
+                {
+                    te.Activate.Invoke();
+                }
+            }
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (TriggerType == ColliderType.Collider_PhysicalWall && collision.gameObject.CompareTag(TargetObjectTagName))
-                OnHit.Invoke();
+            foreach (TriggerEventItem te in events)
+            {
+                if (te.TriggerType == TriggerEventItem.ColliderType.Collider_PhysicalWall 
+                    && collision.gameObject.CompareTag(te.TargetObjectTagName))
+                {
+                    te.Activate.Invoke();
+                }
+            }
         }
+    }
+
+    [System.Serializable]
+    public class TriggerEventItem
+    {
+        public string EventTitle;
+
+        /// <summary>
+        /// does it notify on a trigger or a physical collider
+        /// </summary>
+        public ColliderType TriggerType;
+
+        /// <summary>
+        /// tag of the game object we trigger for
+        /// </summary>
+        public string TargetObjectTagName = "Add Target Tag Here";
+
+        /// <summary>
+        /// event to call in the end of the count
+        /// </summary>
+        public UnityEngine.Events.UnityEvent Activate;
 
         public enum ColliderType
         {

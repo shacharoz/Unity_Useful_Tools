@@ -1032,7 +1032,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd170a965e83f741978b9c34c64e204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: use this field to describe the trigger action
   TimeInSeconds: 10
+  StartImmediately: 1
   OnTimeRunOut:
     m_PersistentCalls:
       m_Calls:
@@ -1060,7 +1062,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  StartImmediately: 1
 --- !u!4 &836828937
 Transform:
   m_ObjectHideFlags: 0
@@ -1349,7 +1350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - EventTitle: obstacle
-    IsTrigger: 0
+    TriggerType: 1
     TargetObjectTagName: OBSTACLE
     Activate:
       m_PersistentCalls:
@@ -1368,7 +1369,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   - EventTitle: trigger
-    IsTrigger: 1
+    TriggerType: 0
     TargetObjectTagName: PICKUP
     Activate:
       m_PersistentCalls:
