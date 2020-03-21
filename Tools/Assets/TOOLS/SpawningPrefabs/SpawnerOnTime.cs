@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnerOnTime : MonoBehaviour
 {
@@ -22,9 +20,6 @@ public class SpawnerOnTime : MonoBehaviour
     [SerializeField]
     private float zMax;
 
-
-
-    // Update is called once per frame
     void Update()
     {
         time_from_last_spawn += Time.deltaTime;
@@ -32,13 +27,11 @@ public class SpawnerOnTime : MonoBehaviour
         {
             if (room) room.gameObject.SetActive(false);
 
-
             float deltaX = (useX) ? Random.Range(xMin, xMax) : 0;
             float deltaZ = (useZ) ? Random.Range(zMin, zMax) : 0;
 
             Instantiate(enemy, transform.position + new Vector3(deltaX, 0, deltaZ), Quaternion.identity, transform);
             time_from_last_spawn = 0;
         }
-
     }
 }

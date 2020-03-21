@@ -1224,7 +1224,7 @@ GameObject:
   - component: {fileID: 1532570594}
   - component: {fileID: 1532570593}
   m_Layer: 0
-  m_Name: 'player : collisions and triggers'
+  m_Name: triggers collisions and triggers
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
