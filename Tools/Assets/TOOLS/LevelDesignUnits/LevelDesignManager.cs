@@ -1,25 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelDesignManager : MonoBehaviour {
+namespace WizardOzTools
+{
+    public class LevelDesignManager : MonoBehaviour
+    {   
+        [System.Serializable]
+        public class LevelSpawnProperties
+        {
+            public string description;
+            public GameObject levelPrefab;
+            public float Length;
+        }
 
-    [System.Serializable]
-    public class LevelSpawnProperties
-    {
-        public GameObject levelPrefab;
+        public List<LevelSpawnProperties> LevelDesignProperties;
+
+        private int index;
+        private float lastPlacedPosition;
+
+        private void Start()
+        {
+            index = -1;
+            lastPlacedPosition = 0;
+            LoadNextSection();
+        }
+
+        public void LoadNextSection()
+        {
+            index++;
+            if (index > LevelDesignProperties.Count)
+            {
+                Debug.Log("Game over");
+                return;
+            }
+
+            Instantiate(LevelDesignProperties[index].levelPrefab,
+                        new Vector3(0, 0, lastPlacedPosition),
+                        Quaternion.identity);
+
+            lastPlacedPosition += LevelDesignProperties[index].Length;
+        }
     }
-
-    public List<LevelSpawnProperties> LevelDesignProperties;
-
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

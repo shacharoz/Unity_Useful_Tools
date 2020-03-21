@@ -2325,7 +2325,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4400628263740864}
-  - component: {fileID: 114878969527287428}
   m_Layer: 0
   m_Name: LevelDesign_easy1
   m_TagString: Untagged
@@ -2340,7 +2339,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769714333832012}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2351,19 +2350,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114878969527287428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1769714333832012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a72822ebc93383478135e624f4f6da7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Length: 100
 --- !u!1 &1815506616851848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,6 +2362,7 @@ GameObject:
   - component: {fileID: 33704829842045590}
   - component: {fileID: 65397141687399104}
   - component: {fileID: 23902105180569152}
+  - component: {fileID: 7355572796165149710}
   m_Layer: 0
   m_Name: NewLevelTrigger
   m_TagString: LOAD_NEW_LEVEL
@@ -2391,7 +2378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815506616851848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 13.915}
   m_LocalScale: {x: 4, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4400628263740864}
@@ -2455,6 +2442,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7355572796165149710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815506616851848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7abe987b4c71846bb0164ba7b3a121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsTrigger: 1
+  TargetObjectTagName: Player
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: LoadNextSection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1847405398156818
 GameObject:
   m_ObjectHideFlags: 0
