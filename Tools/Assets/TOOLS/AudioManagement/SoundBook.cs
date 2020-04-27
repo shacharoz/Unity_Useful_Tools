@@ -30,9 +30,9 @@ namespace WizardOzTools
             }
         }
 
-        public AudioClip GetClipByPurpose(string filename)
+        public AudioClip GetClipByPurpose(string filename, List<AudioFile> list)
         {
-            foreach (AudioFile audio in fxFiles)
+            foreach (AudioFile audio in list)
             {
                 if (audio.purpose == filename)
                 {
@@ -46,7 +46,7 @@ namespace WizardOzTools
 
         public void PlayFxNow(string filename)
         {
-            AudioClip clip = GetClipByPurpose(filename);
+            AudioClip clip = GetClipByPurpose(filename,fxFiles);
             if (clip != null)
             {
                 audioPlayer.clip = clip;
@@ -56,15 +56,11 @@ namespace WizardOzTools
 
         public void PlayMusicNow(string filename)
         {
-            foreach (AudioFile music in bgMusics)
+            AudioClip clip = GetClipByPurpose(filename, bgMusics);
+            if (clip != null)
             {
-                if (music.purpose == filename)
-                {
-                    bgMusicPlayer.clip = music.clip;
-                    bgMusicPlayer.Play();
-
-                    break;
-                }
+                bgMusicPlayer.clip = clip;
+                bgMusicPlayer.Play();
             }
         }
 
