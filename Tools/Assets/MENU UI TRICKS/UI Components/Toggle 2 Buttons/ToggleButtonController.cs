@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class ToggleButtonController : MonoBehaviour
 {
     public List<ButtonItem> AvailableButtons;
-    
+
     /// <summary>
     /// thrown each time the value of the button group changes. the string value contains the last value selected
     /// </summary>
     public ValueStringChanged OnButtonValueChanged;
 
-    
+
     void Start()
     {
         RegisterToButtonEvents();
@@ -28,12 +28,24 @@ public class ToggleButtonController : MonoBehaviour
 
     private void OnToggleChanged(bool isToggleOn)
     {
+        if (isToggleOn == false) return;
+
+        Debug.Log("OnToggleChanged called ");
+
         foreach (ButtonItem item in AvailableButtons)
         {
             if (item.toggleButton.isOn)
             {
                 OnButtonValueChanged.Invoke(item.ValueIfTrue);
                 item.OnActivated.Invoke();
+                item.toggleButton.interactable = false;
+
+                Debug.Log("value " + item.ValueIfTrue);
+
+            }
+            else
+            {
+                item.toggleButton.interactable = true;
             }
         }
     }
@@ -55,18 +67,23 @@ public class ToggleButtonController : MonoBehaviour
     }
 
     /// <summary>
-    /// depricated
+    /// make sure button do not actually activates anything. this is only to manually set the state
     /// </summary>
     /// <param name="_value"></param>
-    private void SwitchButtonStateByValue(string _value)
+    public void SwitchButtonStateByValueWithoutActivatingEffect(string _value)
     {
+        Debug.Log("setting one item for on " + _value);
+
         foreach (ButtonItem item in AvailableButtons)
         {
             if (item.ValueIfTrue == _value)
             {
-
+                item.toggleButton.SetIsOnWithoutNotify(true);
+                return;
             }
         }
+
+        Debug.Log("didnt find item for " + _value);
     }
 }
 
