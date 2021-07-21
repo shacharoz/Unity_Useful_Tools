@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace WizardOzTools
 {
@@ -26,6 +26,7 @@ namespace WizardOzTools
 
         private void OnEnable()
         {
+            // start countdown if on automatic mode
             _isCountStarted = false;
 
             if (StartImmediately == true)
@@ -36,6 +37,7 @@ namespace WizardOzTools
 
         void Update()
         {
+            //check if timer reached the goal
             if (_isCountStarted == true)
             {
                 if (Time.time - _startTime > TimeInSeconds)
@@ -46,15 +48,30 @@ namespace WizardOzTools
             }
         }
 
+        /// <summary>
+        /// start the countdown now (use for manual mechanisms)
+        /// </summary>
         public void StartCountdown()
         {
             _isCountStarted = true;
             _startTime = Time.time;
         }
 
+        /// <summary>
+        /// stop counting, if needed
+        /// </summary>
         public void StopCountdown()
         {
             _isCountStarted = false;
+        }
+
+        /// <summary>
+        /// add or remove time from the max time set
+        /// </summary>
+        /// <param name="timeBonus"></param>
+        public void AddAdditionalTime(int timeBonus)
+        {
+            TimeInSeconds += timeBonus;
         }
     }
 }
