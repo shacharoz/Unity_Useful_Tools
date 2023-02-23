@@ -144,7 +144,7 @@ TextureImporter:
       213: 21300092
     second: Ammo Box Outline
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -164,6 +164,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -172,9 +174,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -195,9 +197,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1247,6 +1253,54 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Silencer Outline: 21300080
+      Ammo Box Normal: 21300090
+      AS50 Outline: 21300042
+      Grenade Normal: 21300048
+      M4A4 Outline: 21300018
+      AKM Normal: 21300008
+      M1A2 Abrams Outline: 21300060
+      Bullet Normal: 21300044
+      F-35 Outline: 21300072
+      AH1Z Viper Normal: 21300066
+      AS50 Normal: 21300040
+      F-35 Normal: 21300070
+      Scar-H Outline: 21300022
+      Armor Normal: 21300054
+      Dragunov SVD Outline: 21300038
+      AH1Z Viper Outline: 21300068
+      HK MP5 SD Normal: 21300004
+      Boat Outline: 21300076
+      Heavy Barrel Outline: 21300084
+      Holo Sight Normal: 21300028
+      AWM Outline: 21300034
+      HK MP5 SD Outline: 21300006
+      M4A1 Normal: 21300012
+      Silencer Normal: 21300078
+      AWM Normal: 21300032
+      Armor Outline: 21300056
+      Glock 43 Normal: 21300000
+      AKM Outline: 21300010
+      Barret .50 Cal Normal: 21300024
+      Barret .50 Cal Outline: 21300026
+      Engineer Outline: 21300064
+      M4A1 Outline: 21300014
+      Scar-H Normal: 21300020
+      Heavy Barrel Normal: 21300082
+      Ammo Box Outline: 21300092
+      M1A2 Abrams Normal: 21300058
+      Boat Normal: 21300074
+      Grenade Outline: 21300050
+      Dragunov SVD Normal: 21300036
+      C4 Normal: 21300086
+      Health Normal: 21300052
+      C4 Outline: 21300088
+      Glock 43 Outline: 21300002
+      Engineer Normal: 21300062
+      Bullet Outline: 21300046
+      Holo Sight Outline: 21300030
+      M4A4 Normal: 21300016
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1
